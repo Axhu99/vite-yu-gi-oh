@@ -1,21 +1,21 @@
 <script>
-import axios from 'axios';
-const endpoint = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons'
+import { store } from '../../data/store.js';
+import CharacterCard from '../charactercard.vue';
 export default {
     name: 'CharactersList',
-    data: () => ({
-        characters: [],
-    }),
-    created() {
-        axios.get(endpoint).then(res => {
-            this.characters = res.data.docs;
-        })
-    }
-
+    data: () => ({ store }),
+    components: { CharacterCard },
 };
 </script>
 
 <template>
     <section id="characters">
+        <div class="row">
+            <div class="col" v-for="character in store.characters" :key="character._id">
+                <CharacterCard v-bind="character" />
+            </div>
+        </div>
     </section>
 </template>
+
+<style></style>

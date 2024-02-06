@@ -11,3 +11,9 @@ export default {
         <CharactersList />
     </main>
 </template>
+
+<style>
+.container {
+    max-width: 1000px;
+}
+</style>

@@ -13,7 +13,7 @@ export default {
 </script>
 
 <template>
-    <select class="form-select base-form" v-model="searchType" @click="$emit('submit-value', searchType)">
+    <select class="form-select base-form" v-model="searchType" @change="$emit('submit-value', searchType)">
         <option v-for=' type  in  types ' v-bind:value="type">{{ type }}</option>
     </select>
 </template>
